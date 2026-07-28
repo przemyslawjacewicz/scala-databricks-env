@@ -1,0 +1,9 @@
+package pl.epsilondeltalimit
+
+import org.apache.spark.sql.Dataset
+
+package object scaladatabricksenv {
+  def display(ds: Dataset[_]): Unit = ???
+
+  def display[A](s: Seq[A]): Unit = ???
+}
