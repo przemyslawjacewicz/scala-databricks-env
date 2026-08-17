@@ -1,12 +1,12 @@
-package pl.epsilondeltalimit.scala_databricks_env.dbutils
+package pl.epsilondeltalimit.scala_databricks_env.dbutils.fs
 
 import java.io.IOException
 import java.nio.file._
 import java.nio.file.attribute.BasicFileAttributes
-import scala.collection.JavaConverters.asScalaIteratorConverter
+import scala.jdk.CollectionConverters.IteratorHasAsScala
 import scala.util.{Failure, Success, Try}
 
-package object fs {
+class Fs {
   def cp(from: String, to: String, recurse: Boolean = false): Boolean = ???
 
   def head(file: String, maxBytes: Int = 65536): String = ???
@@ -14,17 +14,16 @@ package object fs {
   def ls(dir: String): Seq[FileInfo] = {
     println("dbutils.fs.ls")
 
-    Try(Files.list(Paths.get(dir)).iterator().asScala.toArray.map(FileInfo.apply))
+    Try(Files.list(Paths.get(dir)).iterator().asScala.toArray.map(new FileInfo(_)))
       .transform(
         s => Success(s),
         {
           case _: NoSuchFileException => Failure(new Exception(s"No such file or directory $dir"))
-          case e => Failure(e)
+          case e                      => Failure(e)
         }
       )
       .get
   }
-
 
   def mkdirs(dir: String): Boolean = ???
 

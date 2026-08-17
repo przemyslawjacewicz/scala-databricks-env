@@ -11,9 +11,8 @@ import java.sql.Timestamp
 import java.time.temporal.ChronoUnit.MINUTES
 import java.time.{Duration, LocalDateTime}
 
-class packageTest extends AnyFlatSpec with TempSupport with Matchers {
-
-  import pl.epsilondeltalimit.scala_databricks_env._
+class FsTest extends AnyFlatSpec with TempSupport with Matchers {
+  val fs: Fs = new Fs
 
   val `1min`: Long = Duration.of(1, MINUTES).toMillis
 
@@ -31,7 +30,7 @@ class packageTest extends AnyFlatSpec with TempSupport with Matchers {
     val file = tempFile(dir)
     info(file.toString)
 
-    val contents = dbutils.fs.ls(dir.toString)
+    val contents = fs.ls(dir.toString)
     info(contents.mkString(","))
     info(contents.head.path)
 
@@ -45,7 +44,7 @@ class packageTest extends AnyFlatSpec with TempSupport with Matchers {
   }
 
   it should "throw an exception if location does not exist" in {
-    val thrown = the[Exception] thrownBy dbutils.fs.ls("/non-existing-location")
+    val thrown = the[Exception] thrownBy fs.ls("/non-existing-location")
     thrown.getMessage shouldBe "No such file or directory /non-existing-location"
   }
 
@@ -65,7 +64,7 @@ class packageTest extends AnyFlatSpec with TempSupport with Matchers {
     val file = tempFile()
     info(file.toString)
 
-    dbutils.fs.rm(file.toString) shouldBe true
+    fs.rm(file.toString) shouldBe true
     Files.exists(file) shouldBe false
   }
 
@@ -73,7 +72,7 @@ class packageTest extends AnyFlatSpec with TempSupport with Matchers {
     val dir = tempDir()
     info(dir.toString)
 
-    dbutils.fs.rm(dir.toString) shouldBe true
+    fs.rm(dir.toString) shouldBe true
     Files.exists(dir) shouldBe false
   }
 
@@ -84,15 +83,16 @@ class packageTest extends AnyFlatSpec with TempSupport with Matchers {
     val file = tempFile(dir)
     info(file.toString)
 
-    val thrown = the[IOException] thrownBy dbutils.fs.rm(dir.toString)
+    val thrown = the[IOException] thrownBy fs.rm(dir.toString)
     thrown.getMessage shouldBe s"Directory $dir is not empty"
 
-    dbutils.fs.rm(dir.toString, recurse = true) shouldBe true
+    fs.rm(dir.toString, recurse = true) shouldBe true
     Files.exists(dir) shouldBe false
   }
 
   it should "not delete a non-existing file or dir" in {
-    dbutils.fs.rm("/non-existing-location") shouldBe false
-    dbutils.fs.rm("/non-existing-location", recurse = true) shouldBe false
+    fs.rm("/non-existing-location") shouldBe false
+    fs.rm("/non-existing-location", recurse = true) shouldBe false
   }
+
 }

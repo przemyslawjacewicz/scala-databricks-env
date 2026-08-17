@@ -28,8 +28,3 @@ class FileInfo(filepath: Path) {
 
   override def toString: String = s"FileInfo(path=$path, name=$name, size=$size, modificationTime=$modificationTime)"
 }
-
-object FileInfo {
-  def apply(path: Path): FileInfo =
-    new FileInfo(path)
-}

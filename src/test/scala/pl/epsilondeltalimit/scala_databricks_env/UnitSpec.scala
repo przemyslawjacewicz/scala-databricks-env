@@ -10,6 +10,7 @@ import java.nio.file.Files
 import scala.util.{Failure, Success, Try}
 
 trait UnitSpec extends TestSparkSessionProvider with Matchers with DatasetComparer {
+
   // ----- test support ----- //
   trait TempDirectory {
     val tempDirectoryPath: String = Files.createTempDirectory(null).toString

@@ -1,6 +1,6 @@
-package pl.epsilondeltalimit.scala_databricks_env.dbutils
+package pl.epsilondeltalimit.scala_databricks_env.dbutils.widgets
 
-package object widgets {
+class Widgets(widgetsAsMap: Map[String, String]) {
   def combobox(name: String, defaultValue: String, choices: Seq[String], label: String): Unit = ???
 
   def dropdown(name: String, defaultValue: String, choices: Seq[String], label: String): Unit = ???
