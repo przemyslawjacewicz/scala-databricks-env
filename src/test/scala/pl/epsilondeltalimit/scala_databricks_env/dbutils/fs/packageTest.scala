@@ -1,9 +1,9 @@
-package pl.epsilondeltalimit.scaladatabricksenv.dbutils.fs
+package pl.epsilondeltalimit.scala_databricks_env.dbutils.fs
 
 import org.scalatest.Inside.inside
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
-import pl.epsilondeltalimit.scaladatabricksenv.TempSupport
+import pl.epsilondeltalimit.scala_databricks_env.TempSupport
 
 import java.io.IOException
 import java.nio.file.Files
@@ -13,7 +13,7 @@ import java.time.{Duration, LocalDateTime}
 
 class packageTest extends AnyFlatSpec with TempSupport with Matchers {
 
-  import pl.epsilondeltalimit.scaladatabricksenv._
+  import pl.epsilondeltalimit.scala_databricks_env._
 
   val `1min`: Long = Duration.of(1, MINUTES).toMillis
 

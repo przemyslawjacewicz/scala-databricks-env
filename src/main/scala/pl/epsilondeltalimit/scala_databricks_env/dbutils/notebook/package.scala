@@ -1,4 +1,4 @@
-package pl.epsilondeltalimit.scaladatabricksenv.dbutils
+package pl.epsilondeltalimit.scala_databricks_env.dbutils
 
 package object notebook {
   def exit(value: String): Unit = ???

@@ -1,4 +1,4 @@
-package pl.epsilondeltalimit.scaladatabricksenv
+package pl.epsilondeltalimit.scala_databricks_env
 
 import io.delta.tables.DeltaTable
 

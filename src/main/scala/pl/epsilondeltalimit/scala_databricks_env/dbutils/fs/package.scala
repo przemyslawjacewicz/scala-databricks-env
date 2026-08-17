@@ -1,4 +1,4 @@
-package pl.epsilondeltalimit.scaladatabricksenv.dbutils
+package pl.epsilondeltalimit.scala_databricks_env.dbutils
 
 import java.io.IOException
 import java.nio.file._

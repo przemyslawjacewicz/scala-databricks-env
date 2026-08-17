@@ -1,8 +1,8 @@
-package pl.epsilondeltalimit.scaladatabricksenv
+package pl.epsilondeltalimit.scala_databricks_env
 
 import io.delta.tables.DeltaTable
 import org.apache.spark.sql.SparkSession
-import pl.epsilondeltalimit.scaladatabricksenv.implicits._
+import pl.epsilondeltalimit.scala_databricks_env.implicits._
 
 // todo: usage scenarios
 object Runner {

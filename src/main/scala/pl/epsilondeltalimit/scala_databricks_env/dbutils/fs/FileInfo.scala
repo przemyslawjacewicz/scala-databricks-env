@@ -1,4 +1,4 @@
-package pl.epsilondeltalimit.scaladatabricksenv.dbutils.fs
+package pl.epsilondeltalimit.scala_databricks_env.dbutils.fs
 
 import java.nio.file.{Files, Path}
 

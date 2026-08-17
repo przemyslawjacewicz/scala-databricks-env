@@ -1,4 +1,4 @@
-package pl.epsilondeltalimit.scaladatabricksenv
+package pl.epsilondeltalimit.scala_databricks_env
 
 import com.github.mrpowers.spark.fast.tests.DatasetComparer
 import org.apache.hadoop.fs.Path
