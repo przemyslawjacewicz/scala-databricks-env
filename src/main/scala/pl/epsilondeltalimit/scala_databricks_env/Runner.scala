@@ -2,14 +2,14 @@ package pl.epsilondeltalimit.scala_databricks_env
 
 import io.delta.tables.DeltaTable
 import org.apache.spark.sql.SparkSession
-import pl.epsilondeltalimit.scala_databricks_env.dbutils.Dbutils
+import pl.epsilondeltalimit.scala_databricks_env.dbutils.DbUtils
 
 // todo: usage scenarios
 object Runner {
 
   val spark: SparkSession = ???
 
-  val dbutils: Dbutils = new Dbutils
+  val dbutils: DbUtils = new DbUtils
 
   def main(args: Array[String]): Unit = {
 
